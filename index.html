@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Site lent (atelier d'optimisation)</title>
+  <!-- CSS principal (non minifié) -->
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- JS placé dans le <head> SANS defer/async pour bloquer le rendu -->
+  <script src="js/script.js"></script>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container nav">
+      <div class="logo">Slow<span>Site</span></div>
+      <div class="menu">
+        <a href="#galerie">Galerie</a>
+        <a href="#defis">Défis</a>
+        <a href="#apropos">À propos</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <h1>Site volontairement <em>lent</em> pour atelier performance</h1>
+        <p>
+          Ce site a été conçu <strong>exprès</strong> pour charger lentement : grosses images,
+          JavaScript bloquant, polices externes et CSS chaîné. Votre mission :
+          <span class="highlight">le rendre rapide</span>.
+        </p>
+        <a class="cta" href="#defis">Voir les défis d'optimisation</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="galerie" class="section gallery">
+    <div class="container">
+      <h2>Galerie (6 images non optimisées)</h2>
+      <div class="grid">
+        <div class="card"><img src="img/img1.jpg" alt="Image 1"/></div>
+        <div class="card"><img src="img/img2.jpg" alt="Image 2"/></div>
+        <div class="card"><img src="img/img3.jpg" alt="Image 3"/></div>
+        <div class="card"><img src="img/img4.jpg" alt="Image 4"/></div>
+        <div class="card"><img src="img/img5.jpg" alt="Image 5"/></div>
+        <div class="card"><img src="img/img6.jpg" alt="Image 6"/></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="apropos" class="section features">
+    <div class="container">
+      <h2>Caractéristiques modernes (mais peu efficientes)</h2>
+      <div class="features-grid">
+        <div class="feature"><div class="icon">⚡</div><h3>Design moderne</h3><p>Couleurs, ombres, grille responsive… mais sans optimisation.</p></div>
+        <div class="feature"><div class="icon">🧱</div><h3>JS bloquant</h3><p>Un script dans le <code>&lt;head&gt;</code> bloque le rendu pendant quelques secondes.</p></div>
+        <div class="feature"><div class="icon">🖼️</div><h3>Images géantes</h3><p>6 JPEG en très haute résolution et non compressés efficacement.</p></div>
+        <div class="feature"><div class="icon">🔠</div><h3>Polices externes</h3><p>Téléchargement bloquant des webfonts sans stratégie de repli.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="defis" class="section challenges">
+    <div class="container">
+      <h2>Défis d'optimisation (au moins 5 leviers)</h2>
+      <ol>
+        <li><strong>Images :</strong> Réduire la résolution, compresser, convertir en <code>WebP/AVIF</code>, utiliser <code>srcset</code> & <code>sizes</code>, et activer le <code>loading="lazy"</code>.</li>
+        <li><strong>JavaScript :</strong> Déplacer le script en bas de page, ou ajouter <code>defer</code>/<code>async</code>. Supprimer les boucles bloquantes et code inutile.</li>
+        <li><strong>CSS :</strong> Enlever le <code>@import</code> chaîné, concaténer et minifier le CSS, extraire un <em>critical CSS</em> inline.</li>
+        <li><strong>Polices :</strong> Héberger localement, limiter les variantes, utiliser <code>font-display: swap</code>, précharger (<code>preload</code>) les plus critiques.</li>
+        <li><strong>Réseau :</strong> Réduire le nombre de requêtes, activer la mise en cache, compresser via Gzip/Brotli côté serveur.</li>
+        <li><strong>Images hors écran :</strong> Appliquer un <em>lazy-loading</em> et des <em>placeholders</em> (LQIP/blurhash) pour le contenu non visible au chargement.</li>
+        <li><strong>Accessibilité/perfs :</strong> Définir <code>width</code>/<code>height</code> sur les images pour éviter le reflow et améliorer le CLS.</li>
+        <li><strong>Animations/ombres :</strong> Réduire les ombres lourdes et les effets sur des propriétés non-accélérées ; préférer <code>transform</code>/<code>opacity</code>.</li>
+        <li><strong>Nettoyage :</strong> Supprimer le CSS/JS mort, mutualiser les règles répliquées.</li>
+        <li><strong>Média queries :</strong> Servir des assets adaptés par breakpoint (<code>media</code> queries, <code>type</code> sur <code>link</code>).</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="container">
+      <p>© 2025 — Projet pédagogique pour optimiser les performances de chargement.</p>
+    </div>
+  </div>
+</body>
+</html>
