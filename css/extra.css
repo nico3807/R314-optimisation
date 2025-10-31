@@ -1,14 +1,10 @@
-/* Fichier importé (chaînage bloquant) — pourrait être fusionné/minifié */
-/* Effets visuels non essentiels mais coûteux */
+
 .hero, .card, .feature, .cta{
-  /* lourdes ombres multiples */
   box-shadow:
     0 2px 4px rgba(0,0,0,.14),
     0 8px 24px rgba(0,0,0,.22),
     0 24px 60px rgba(0,0,0,.18);
 }
-
-/* Encore du remplissage inutile pour grossir le CSS */
 .extra-1{filter:brightness(1.1);}
 .extra-2{filter:brightness(1.2);}
 .extra-3{filter:brightness(1.3);}
